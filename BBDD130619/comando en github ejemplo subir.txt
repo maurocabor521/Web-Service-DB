@@ -13,5 +13,6 @@ git push -u origin master
 GIT BASH: 
 git init
 git add .
+git commit -m 'info del commit'
 git push -u origin master
 //*******************
