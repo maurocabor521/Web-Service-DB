@@ -19,7 +19,7 @@ $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_local
 			die("Connection failed: " . $conn->connect_error);
 		} 
 
-		if($nameejercicio !="" && $letraInicial!="" && $letraFinal==""){
+		if(($nameejercicio  && $letraInicial!="") && $letraFinal==""){
 	
 				$sql = "UPDATE `ejerciciog2` SET `nameEjercicioG2` ='{$nameejercicio}', `letra_inicial_EjercicioG2`='{$letraInicial}' WHERE `ejerciciog2`.`idEjercicioG2` = '{$idejercicio}';";
 		
@@ -29,9 +29,9 @@ $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_local
 				echo "noRegistra" . $conn->error;
 				}
 			}else		
-				if($nameejercicio !="" && $letraInicial!="" && $letraInicial==""){
+				if(($nameejercicio  && $letraFinal && $letraInicia  )!=""){
 	
-					$sql = "UPDATE `ejerciciog2` SET `nameEjercicioG2` ='{$nameejercicio}', `letra_final_EjercicioG2`='{$letraFinal}' WHERE `ejerciciog2`.`idEjercicioG2` = '{$idejercicio}';";
+					$sql = "UPDATE `ejerciciog2` SET `nameEjercicioG2` ='{$nameejercicio}',`letra_inicial_EjercicioG2`='{$letraInicial}', `letra_final_EjercicioG2`='{$letraFinal}' WHERE `ejerciciog2`.`idEjercicioG2` = '{$idejercicio}';";
 		
 					if ($conexion->query($sql) === TRUE) {
 						echo "registra";
@@ -39,6 +39,8 @@ $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_local
 					echo "noRegistra" . $conn->error;
 					}
 			}
+
+			//echo "ninguna";
 
 	mysqli_close($conexion);
 ?>
