@@ -12,7 +12,10 @@ $json=array();
 		$estudiante_idestudiante=$_GET["estudiante_idestudiante"];
 		//$docente_iddocente=$_GET["docente_iddocente"];
 		//$consulta="select EjercicioG1_idEjercicioG1,EjercicioG2_idEjercicioG2,tipoDeber from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}' and docente_iddocente='{$docente_iddocente}'";
-		$consulta="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}'";
+
+		//$consulta="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}'";
+		$consulta="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}' AND calificacionestudiante_has_Deber IS NULL ";
+
 		$resultado=mysqli_query($conexion,$consulta);
 		//print_r("col:".$resultado->num_rows);
 		while($registro=mysqli_fetch_array($resultado)){
