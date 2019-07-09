@@ -13,7 +13,7 @@ $json=array();
 		//$docente_iddocente=$_GET["docente_iddocente"];
 		//$consulta="select EjercicioG1_idEjercicioG1,EjercicioG2_idEjercicioG2,tipoDeber from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}' and docente_iddocente='{$docente_iddocente}'";
 
-		//$consulta="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}'";
+		$consulta1="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}'";
 		$consulta="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}' AND calificacionestudiante_has_Deber IS NULL ";
 
 		$resultado=mysqli_query($conexion,$consulta);
@@ -23,6 +23,15 @@ $json=array();
 			//echo $registro['id'].' - '.$registro['nombre'].'<br/>';
 			//print_r("col:".$resultado->num_rows);
 		}
+
+		$resultado1=mysqli_query($conexion,$consulta1);
+		//print_r("col:".$resultado->num_rows);
+		while($registro1=mysqli_fetch_array($resultado1)){
+			$json['deber1'][]=$registro1;
+			//echo $registro['id'].' - '.$registro['nombre'].'<br/>';
+			//print_r("col:".$resultado->num_rows);
+		}
+		
 		mysqli_close($conexion);
 		echo json_encode($json);
 ?>
