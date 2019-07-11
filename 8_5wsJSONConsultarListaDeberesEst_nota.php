@@ -27,7 +27,14 @@ $json=array();
 
 
 		}else if($estudiante_idestudiante!=""){
-			echo "no vacio";
+			$consulta="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}' and calificacionestudiante_has_Deber IS NOT NULL 
+			ORDER BY SUBSTR(fechaestudiante_has_Deber,2,4) + SUBSTR(fechaestudiante_has_Deber, 0, 4) DESC";
+			$resultado=mysqli_query($conexion,$consulta);
+			
+			while($registro=mysqli_fetch_array($resultado)){
+				$json['deber_nota1'][]=$registro;
+			}
+			/*echo "no vacio";
 			$consulta1="select * from estudiante where idestudiante='{$estudiante_idestudiante}'";
 
 			$resultado1=mysqli_query($conexion,$consulta1);
@@ -35,7 +42,7 @@ $json=array();
 			while($registro1=mysqli_fetch_array($resultado1)){
 			$json['deber_nota1'][]=$registro1;
 
-			}
+			}*/
 		}
 
 		mysqli_close($conexion);
