@@ -13,6 +13,6 @@ git push -u origin master
 GIT BASH: 
 git init
 git add .
-git commit -m '100719_'
+git commit -m '120719_'
 git push -u origin master
 //*******************
