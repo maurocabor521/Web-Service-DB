@@ -14,7 +14,7 @@ $json=array();
 		//$consulta="select EjercicioG1_idEjercicioG1,EjercicioG2_idEjercicioG2,tipoDeber from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}' and docente_iddocente='{$docente_iddocente}'";
 
 		//$consulta1="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}'";
-		if($id_grupo_estudiante==""){
+		if($id_grupo_estudiante!=""){
 
 			/*SELECT grupo_estudiante_idgrupo_estudiante
 			FROM grupo_estudiante_has_deber
@@ -22,9 +22,9 @@ $json=array();
 			ON grupo_estudiante_has_deber.grupo_estudiante_has_deber_id_GE_H_D=estudiante_has_deber.grupo_estudiante_has_deber_id_GE_H_D;*/
 
 			//***************************************************************************************** */
-			echo "vacio";
-			$consulta="select * from estudiante_has_deber where  calificacionestudiante_has_Deber IS NOT NULL 
-			ORDER BY SUBSTR(fechaestudiante_has_Deber,2,4) + SUBSTR(fechaestudiante_has_Deber, 0, 4) DESC";
+			//echo "vacio";
+			$consulta="select * from grupo_estudiante_has_deber where grupo_estudiante_idgrupo_estudiante='{$id_grupo_estudiante}'  
+			ORDER BY SUBSTR(fecha_gehd,2,4) + SUBSTR(fecha_gehd, 0, 4) DESC";
 			$resultado=mysqli_query($conexion,$consulta);
 			
 			while($registro=mysqli_fetch_array($resultado)){
@@ -33,7 +33,7 @@ $json=array();
 			}
 
 
-		}else if($id_grupo_estudiante!=""){
+		}else if($id_grupo_estudiante==""){
 			$consulta="select * from estudiante_has_deber where grupo_estudiante_has_deber_id_GE_H_D='{$id_grupo_estudiante}' and calificacionestudiante_has_Deber IS NOT NULL 
 			ORDER BY SUBSTR(fechaestudiante_has_Deber,2,4) + SUBSTR(fechaestudiante_has_Deber, 0, 4) DESC";
 			$resultado=mysqli_query($conexion,$consulta);
