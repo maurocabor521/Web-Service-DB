@@ -13,6 +13,18 @@ git push -u origin master
 GIT BASH: 
 git init
 git add .
-git commit -m '13_0719_'
+git commit -m '290719'
 git push -u origin master
 //*******************
+File .gradle/4.6/javaCompile/taskHistory.bin
+http://git.io/iEPt8g 
+
+git add .gradle/4.6/javaCompile/taskHistory.bin
+git commit -m "large file"
+git push origin master
+//
+brew install bfg
+bfg --strip-blobs-bigger-than 50M
+git rm --cached XYZ
+git commit --amend -CHEAD
+git push
