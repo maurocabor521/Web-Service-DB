@@ -10,13 +10,14 @@ $json=array();
 				
 		$conexion = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
 		$estudiante_idestudiante=$_GET["estudiante_idestudiante"];
+		$id_docente=$_GET["iddocente"];
 		//$docente_iddocente=$_GET["docente_iddocente"];
 		//$consulta="select EjercicioG1_idEjercicioG1,EjercicioG2_idEjercicioG2,tipoDeber from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}' and docente_iddocente='{$docente_iddocente}'";
 
 		//$consulta1="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}'";
 		if($estudiante_idestudiante==""){
 			echo "vacio";
-			$consulta="select * from estudiante_has_deber where  calificacionestudiante_has_Deber IS NOT NULL 
+			$consulta="select * from estudiante_has_deber where  calificacionestudiante_has_Deber IS NOT NULL and docente_iddocente='{$id_docente}' 
 			ORDER BY SUBSTR(fechaestudiante_has_Deber,2,4) + SUBSTR(fechaestudiante_has_Deber, 0, 4) DESC";
 			$resultado=mysqli_query($conexion,$consulta);
 			
@@ -27,7 +28,7 @@ $json=array();
 
 
 		}else if($estudiante_idestudiante!=""){
-			$consulta="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}' and calificacionestudiante_has_Deber IS NOT NULL 
+			$consulta="select * from estudiante_has_deber where estudiante_idestudiante='{$estudiante_idestudiante}' and calificacionestudiante_has_Deber IS NOT NULL and docente_iddocente='{$id_docente}'
 			ORDER BY SUBSTR(fechaestudiante_has_Deber,2,4) + SUBSTR(fechaestudiante_has_Deber, 0, 4) DESC";
 			$resultado=mysqli_query($conexion,$consulta);
 			
