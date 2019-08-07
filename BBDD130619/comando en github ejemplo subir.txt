@@ -13,7 +13,7 @@ git push -u origin master
 GIT BASH: 
 git init
 git add .
-git commit -m '290719'
+git commit -m '070819'
 git push -u origin master
 //*******************
 File .gradle/4.6/javaCompile/taskHistory.bin

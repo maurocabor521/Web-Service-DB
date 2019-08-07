@@ -18,9 +18,8 @@ $json=array();
 		ON  (grupo_estudiante.idgrupo_estudiante='{$grupo_estudiante_idgrupo_estudiante}')=grupo_estudiante_has_deber.grupo_estudiante_idgrupo_estudiante
 		AND  grupo_estudiante.docente_iddocente='".$iddocente."'  order by id_GE_H_D asc";*/
 
-		$consulta="select * from grupo_estudiante_has_deber INNER JOIN grupo_estudiante 
-		ON  (grupo_estudiante.idgrupo_estudiante='{$grupo_estudiante_idgrupo_estudiante}')=grupo_estudiante_has_deber.grupo_estudiante_idgrupo_estudiante
-		AND  grupo_estudiante.docente_iddocente='".$iddocente."'  order by id_GE_H_D asc";
+		$consulta="select * from grupo_estudiante_has_deber where grupo_estudiante_idgrupo_estudiante='{$grupo_estudiante_idgrupo_estudiante}'";
+		//AND  grupo_estudiante.docente_iddocente='".$iddocente."'  order by id_GE_H_D asc";
 		
 		//$consulta="select * from grupo_estudiante g1 INNER JOIN  grupo_estudiante_has_estudiante g2  ON g1.grupo_estudiante_idgrupo_estudiante=g2.grupo_estudiante_idgrupo_estudiante";
 
