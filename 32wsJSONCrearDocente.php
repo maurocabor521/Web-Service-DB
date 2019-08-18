@@ -8,12 +8,11 @@ $password_localhost ="";
 
 $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
 
-	$idestudiante = $_POST["idestudiante"];
-	$nameestudiante = $_POST["nameestudiante"];
-	$dniestudiante = $_POST["dniestudiante"];
-	$acudienteestudiante = $_POST["acudienteestudiante"];
-	$emailAcudienteestudiante = $_POST["emailAcudienteestudiante"];
-	$passwork_estudiante = $_POST["passwork_estudiante"];
+	$iddocente = $_POST["iddocente"];
+	$namedocente = $_POST["namedocente"];
+	$dnidocente = $_POST["dnidocente"];
+	$email_docente = $_POST["email_docente"];
+	$passwork_docente = $_POST["passwork_docente"];
 
 /*
 	$path = "imagenes/$nombre.jpg";
@@ -24,10 +23,10 @@ $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_local
 	file_put_contents($path,base64_decode($imagen));
 	$bytesArchivo=file_get_contents($path);
 */
-	$sql="INSERT INTO estudiante VALUES (?,?,?,?,?,?)";
+	$sql="INSERT INTO docente VALUES (?,?,?,?,?)";
 	$stm=$conexion->prepare($sql);
 	//$stm->bind_param('isis',$idestudiante,$nameestudiante,$dniestudiante,$acudienteestudiante);
-	$stm->bind_param('isisss',$idestudiante,$nameestudiante,$dniestudiante,$acudienteestudiante,$emailAcudienteestudiante,$passwork_estudiante);
+	$stm->bind_param('isiss',$iddocente,$namedocente,$dnidocente,$email_docente,$passwork_docente);
 		
 	if($stm->execute()){
 		echo "registra";

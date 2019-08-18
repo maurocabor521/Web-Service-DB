@@ -5,17 +5,16 @@ $hostname_localhost ="localhost";
 $database_localhost ="dconfo_proyecto_v8";
 $username_localhost ="root";
 $password_localhost ="";
+
 //wsJSONConsultarEstudiante
 $json=array();
 		
 	$conexion = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
-	$password = $_GET["passwork_estudiante"];
-	//$password = 220;
-	$email = $_GET["emailAcudienteestudiante"];
-	//$email = "jemail";
+	$idestudiante = $_GET["idestudiante"];
 
 
-	$consulta="select * from estudiante where emailAcudienteestudiante='{$email}' and passwork_estudiante= '{$password}' ";
+
+	$consulta="select * from estudiante where idestudiante='{$idestudiante}'";
 		$resultado=mysqli_query($conexion,$consulta);
 			
 		if($registro=mysqli_fetch_array($resultado)){

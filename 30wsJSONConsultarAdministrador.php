@@ -5,30 +5,30 @@ $hostname_localhost ="localhost";
 $database_localhost ="dconfo_proyecto_v8";
 $username_localhost ="root";
 $password_localhost ="";
-//wsJSONConsultarEstudiante
+
 $json=array();
 		
 	$conexion = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
-	$password = $_GET["passwork_estudiante"];
+	$password = $_GET["passwork_administrador"];
 	//$password = 220;
-	$email = $_GET["emailAcudienteestudiante"];
+	$email = $_GET["emailAdministrador"];
 	//$email = "jemail";
 
 
-	$consulta="select * from estudiante where emailAcudienteestudiante='{$email}' and passwork_estudiante= '{$password}' ";
+	$consulta="select * from adminstrador where emailAdminstrador='{$email}' and passwork_Adminstrador= '{$password}' ";
 		$resultado=mysqli_query($conexion,$consulta);
 			
 		if($registro=mysqli_fetch_array($resultado)){
-			$json['estudiante'][]=$registro;
+			$json['adminstrador'][]=$registro;
 			//echo $registro['idestudiante'].' - '.$registro['nameestudiante'].' - '.$registro['acudienteestudiante'].'<br/>';
 			//print_r($json);
 			//echo json_encode($json);
 		}else{
-			$resultar["idestudiante"]=0;
-			$resultar["nameestudiante"]='no registra';
-			$resultar["dniestudiante"]='no registra';
-			$resultar["acudienteestudiante"]='no registra';
-			$json['estudiante'][]=$resultar;
+			$resultar["idAdminstrador"]=0;
+			$resultar["nameAdminstrador"]='no registra';
+			$resultar["emailAdminstrador"]='no registra';
+			$resultar["passwork_Adminstrador"]='no registra';
+			$json['adminstrador'][]=$resultar;
 		}
 		
 		mysqli_close($conexion);
